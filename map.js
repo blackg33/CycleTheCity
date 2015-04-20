@@ -2,9 +2,8 @@ $(document).ready(function(){
 
 function initialize() {
     
-//GRAB MAP DIV BY ID  
+//GRAB MAP DIV BY ID & SET OPTIONS FOR MAP STARTING POINT/TYPE
 var mapCanvas = document.getElementById('googleMap');
-//SET OPTIONS FOR MAP STARTING POINT/TYPE
 var myLatlng = new google.maps.LatLng(43.653528, -79.426732);
 
 var options = {
@@ -20,7 +19,7 @@ var marker = new google.maps.Marker({
     map: map,
     title:"Hello World!"
 });
-//CREATE NEW SEARCH BOX OBJECT FOR INPUT SEARCHBOX
+//CREATE NEW SEARCH BOX OBJECT FOR LOCATION SEARCH
 var searchBox = new google.maps.places.SearchBox(document.getElementById('searchBox'));
 //EVENT LISTENER FOR SEARCH BOX
 google.maps.event.addListener(searchBox, 'places_changed',function(){
@@ -43,6 +42,18 @@ google.maps.event.addListener(map, 'bounds_changed', function() {
     var bounds = map.getBounds();
     searchBox.setBounds(bounds);
   });
+  /*
+  function generateMarkers(yourLocations) {
+      for (var i = 0; i < yourLocations.length; i++) {
+        var coords = yourLocations[i].split(", ");
+        new google.maps.Marker({
+          position: new google.maps.LatLng(coords[0], coords[1]),
+          map: map,
+          title: yourLocations[i]
+        });
+      }
+    }
+    generateMarkers(yourLocations);*/
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

@@ -8,11 +8,14 @@ $json_data = curl_exec($curl);
 curl_close($curl);
     
  $result = json_decode($json_data, true);
- $station = [];
- $bike_stations = $result['stationBeanList'];
+ 
+ $all_stations = array();
+// $bike_stations = $result['stationBeanList'];
 
-foreach($result['stationBeanList']as $item){
+foreach($result['stationBeanList'] as $item){
     
-    //echo "<p>" . $item['stationName'] . "</p>";
-    echo $station = array ($item['latitude'], $item['longitude']);
+  $station = ($item['latitude'] . "," . $item['longitude']);
+  $all_stations[]=$station;
 }
+
+echo json_encode($all_stations);
