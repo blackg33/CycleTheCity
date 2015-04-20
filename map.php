@@ -7,8 +7,8 @@
     <header id="head">
         <img id="logo" alt="Cycle The City Logo" src="BIKE3.png"/>
         <div id="location_search">
-            <label id="search"> Enter a location: </label>
-            <input id="searchBox" type="text" placeholder="eg.Trinity Bellwoods Park "/>
+            <label id="search"> Find a bike: </label>
+            <input id="searchBox" type="text" placeholder="Enter your location "/>
         </div>
         <nav>
             
