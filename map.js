@@ -13,17 +13,12 @@ var options = {
 };
 //CREATE NEW MAP OBJECT
 var map =new google.maps.Map(mapCanvas, options);
-//PLACE STARTING MARKER    
-var marker = new google.maps.Marker({
-    position: myLatlng,
-    map: map,
-    title:"Hello World!"
-});
+
 //CREATE NEW SEARCH BOX OBJECT FOR LOCATION SEARCH
 var searchBox = new google.maps.places.SearchBox(document.getElementById('searchBox'));
 //EVENT LISTENER FOR SEARCH BOX
 google.maps.event.addListener(searchBox, 'places_changed',function(){
-    //console.log(searchBox.getPlaces());
+
     var places = searchBox.getPlaces();
     var bounds = new google.maps.LatLngBounds();
     var i, place;
