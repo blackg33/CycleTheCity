@@ -2,9 +2,9 @@ $(document).ready(function(){
 
 function initialize() {
     
-//Grap map DIV by id    
+//GRAB MAP DIV BY ID  
 var mapCanvas = document.getElementById('googleMap');
-//set options for map starting point/type
+//SET OPTIONS FOR MAP STARTING POINT/TYPE
 var myLatlng = new google.maps.LatLng(43.653528, -79.426732);
 
 var options = {
@@ -12,17 +12,17 @@ var options = {
   zoom: 13,
   mapTypeId: google.maps.MapTypeId.ROADMAP
 };
-
+//CREATE NEW MAP OBJECT
 var map =new google.maps.Map(mapCanvas, options);
-    
+//PLACE STARTING MARKER    
 var marker = new google.maps.Marker({
     position: myLatlng,
     map: map,
     title:"Hello World!"
 });
-
+//CREATE NEW SEARCH BOX OBJECT FOR INPUT SEARCHBOX
 var searchBox = new google.maps.places.SearchBox(document.getElementById('searchBox'));
-
+//EVENT LISTENER FOR SEARCH BOX
 google.maps.event.addListener(searchBox, 'places_changed',function(){
     //console.log(searchBox.getPlaces());
     var places = searchBox.getPlaces();
