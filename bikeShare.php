@@ -17,5 +17,3 @@ foreach($result['stationBeanList'] as $item){
   $station = ($item['latitude'] . "," . $item['longitude']);
   $all_stations[]=$station;
 }
-
-echo json_encode($all_stations);

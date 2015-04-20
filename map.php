@@ -34,6 +34,11 @@
     };
     //CREATE NEW MAP OBJECT
     var map =new google.maps.Map(mapCanvas, options);
+    
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+    });
 
     //CREATE NEW SEARCH BOX OBJECT FOR LOCATION SEARCH
     var searchBox = new google.maps.places.SearchBox(document.getElementById('searchBox'));
@@ -58,23 +63,25 @@
         var bounds = map.getBounds();
         searchBox.setBounds(bounds);
       });
-      /*
-      function generateMarkers(yourLocations) {
-          for (var i = 0; i < yourLocations.length; i++) {
-            var coords = yourLocations[i].split(", ");
+      
+      var bikeLocations = <?php echo json_encode($all_stations); ?>;
+      
+      function generateMarkers(bikeLocations) {
+          for (var i = 0; i < bikeLocations.length; i++) {
+            var coords = bikeLocations[i].split(", ");
             new google.maps.Marker({
               position: new google.maps.LatLng(coords[0], coords[1]),
               map: map,
-              title: yourLocations[i]
+              title: bikeLocations[i]
             });
           }
         }
-        generateMarkers(yourLocations);*/
-    }
+        generateMarkers(bikeLocations);
+    };//END INITIALIZE 
 
     google.maps.event.addDomListener(window, 'load', initialize);
 
-    marker.setMap(map);
+    //marker.setMap(map);
 
     });
 
