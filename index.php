@@ -1,21 +1,26 @@
 <?php
-    require'bikeShare.php';
+    require'JSON/bikeShare.php';
 ?>
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
     <link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
     <meta charset="UTF-8">
 </head>
 <body>
     <header id="head">
-        <img id="logo" alt="Cycle The City Logo" src="BIKE3.png"/>
+        <img id="logo" alt="Cycle The City Logo" src="images/BIKE3.png"/>
         <div id="location_search">
             <label id="search"> Find a bike station nearby: </label>
             <input id="searchBox" type="text" placeholder="Enter your location "/>
         </div>
-        <nav>
-            
-        </nav>
+        <div id="discover">
+            <label>Discover: </label>
+            <select id="filters">
+                <option>Food Trucks</option>
+                <option>Parks</option>
+                <option>Restaurants</option>
+            </select> 
+        </div>
     </header>
         <div id="googleMap"></div>
 </body>
@@ -40,8 +45,8 @@
     var map =new google.maps.Map(mapCanvas, options); 
     var marker = new google.maps.Marker({
         position: myLatlng,
-        //add in custom marker
         map: map,
+        title: 'You are here'
     });
 /*--------------SEARCH BOX------------------*/
     //CREATE NEW SEARCH BOX OBJECT FOR LOCATION SEARCH
@@ -77,11 +82,19 @@
               position: new google.maps.LatLng(coords[0], coords[1]),
               map: map,
               icon: 'images/cycling.png',
-              title: bikeLocations[i]
+              title: "Click for details"
             });
           }
         }
         generateMarkers(bikeLocations);
+         
+        var info_window = new google.maps.InfoWindow({
+            content:"test"
+        });
+        google.maps.event.addListener(marker, 'click', function(){
+            info_window.open(map,marker);
+        });
+        
     };//END INITIALIZE 
 
     google.maps.event.addDomListener(window, 'load', initialize);

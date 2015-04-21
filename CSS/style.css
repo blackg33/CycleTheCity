@@ -2,6 +2,7 @@
     font-family: 'Raleway', sans-serif;
     padding:0;
     margin:0;
+
 }
 
 #head{
@@ -10,23 +11,25 @@
 }
 
 #head #logo{
+    float:left;
     max-height: 70px;
 }
 
-input:focus {
+input:focus , select:focus{
     box-shadow: 0 0 3px #000;
     outline:none;
 }
 
 #location_search{
-    float:right;
+    float:left;
+    width:450px;
+    margin-left:20%;
     position:relative;
-   // bottom:10px;
     top:35px;
 }
 
 #searchBox{
-    border:2px solid #000;
+    border:1px solid #000;
     border-radius:25px;
     height:35px;
     padding:3px;
@@ -34,10 +37,26 @@ input:focus {
     z-index: 1;
 }
 
+#discover{
+    float:left;
+    margin:10px;
+    position: relative;
+    top:25px;
+}
+
+#filters{
+    background: transparent;
+    border:1px solid #000;
+    border-radius: 50px;
+    font-size:13px;
+    height:35px;
+    width:220px;
+}
+
 #googleMap{
     background-color:grey;
    // border-bottom:5px solid #575757;
     border-top:5px solid #575757;
-    height:420px;
+    height:500px;
     max-width:100%;
 }
