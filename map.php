@@ -3,13 +3,14 @@
 ?>
 <head>
     <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
     <meta charset="UTF-8">
 </head>
 <body>
     <header id="head">
         <img id="logo" alt="Cycle The City Logo" src="BIKE3.png"/>
         <div id="location_search">
-            <label id="search"> Find a bike: </label>
+            <label id="search"> Find a bike station nearby: </label>
             <input id="searchBox" type="text" placeholder="Enter your location "/>
         </div>
         <nav>
@@ -28,17 +29,18 @@
 
     //GRAB MAP DIV BY ID & SET OPTIONS FOR MAP STARTING POINT/TYPE
     var mapCanvas = document.getElementById('googleMap');
-    var myLatlng = new google.maps.LatLng(43.653528, -79.426732);
+    var myLatlng = new google.maps.LatLng(43.661368200000000000, -79.383094200000020000);
     //SET MAP OPTIONS
     var options = {
       center:myLatlng,
-      zoom: 13,
+      zoom: 14,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     //CREATE NEW MAP OBJECT
     var map =new google.maps.Map(mapCanvas, options); 
     var marker = new google.maps.Marker({
         position: myLatlng,
+        //add in custom marker
         map: map,
     });
 /*--------------SEARCH BOX------------------*/
@@ -58,7 +60,7 @@
         }
 
         map.fitBounds(bounds);
-        map.setZoom(13); //SET ZOOM FOR NEW LOCATIONS
+        map.setZoom(16); //SET ZOOM FOR NEW LOCATIONS
     });
     //BIAS SEARCH RESULTS BASED ON WHATS IN CURRENT BOUNDS
     google.maps.event.addListener(map, 'bounds_changed', function() {
@@ -74,6 +76,7 @@
             new google.maps.Marker({
               position: new google.maps.LatLng(coords[0], coords[1]),
               map: map,
+              icon: 'images/cycling.png',
               title: bikeLocations[i]
             });
           }
