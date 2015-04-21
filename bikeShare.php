@@ -9,11 +9,13 @@ curl_close($curl);
     
  $result = json_decode($json_data, true);
  
- $all_stations = array();
+$all_stations = array();
 // $bike_stations = $result['stationBeanList'];
 
 foreach($result['stationBeanList'] as $item){
     
-  $station = ($item['latitude'] . "," . $item['longitude']);
-  $all_stations[]=$station;
+    $station = ($item['latitude'] . "," . $item['longitude']);
+    $all_stations[]=$station;
+   
 }
+
