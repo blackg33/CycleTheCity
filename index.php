@@ -21,6 +21,7 @@
                 <option>Restaurants</option>
             </select> 
         </div>
+        <nav> <!--ADD IN HAMBURGER MENU--></nav>
     </header>
         <div id="googleMap"></div>
 </body>
@@ -58,6 +59,7 @@
         var bounds = new google.maps.LatLngBounds();
         var i, place;
 
+    //SET MARKER TO SEARCH LOCATION
         for(i=0;place=places[i];i++){
             console.log(place.geometry.location);
             bounds.extend(place.geometry.location);
@@ -87,13 +89,13 @@
           }
         }
         generateMarkers(bikeLocations);
-         
+        /* ADD INFO WINDOWS FOR AVAILABLE BIKES
         var info_window = new google.maps.InfoWindow({
             content:"test"
         });
         google.maps.event.addListener(marker, 'click', function(){
             info_window.open(map,marker);
-        });
+        });*/
         
     };//END INITIALIZE 
 
