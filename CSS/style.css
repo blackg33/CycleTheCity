@@ -41,7 +41,7 @@ input:focus , select:focus{
     float:left;
     margin:10px;
     position: relative;
-    top:25px;
+    top:23px;
 }
 
 #filters{
